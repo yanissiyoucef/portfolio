@@ -1,0 +1,2 @@
+import Link from "next/link";import {collections,documents} from "@/lib/data";
+export default function Collections(){return <section><div className="page-head"><p>Fonds documentaire</p><h1>Collections</h1></div><div className="collection-list">{collections.map(c=>{const items=documents.filter(d=>d.collectionSlug===c.slug);return <Link key={c.slug} href={`/?collection=${c.slug}`}><span className="collection-mark" style={{background:c.accent}}/><div><h2>{c.name}</h2><p>{items.length} document{items.length>1?"s":""}</p></div><span>Consulter →</span></Link>})}</div></section>}
